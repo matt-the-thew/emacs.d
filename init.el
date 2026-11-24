@@ -1,32 +1,34 @@
 ;; Hello, future Matt. Welcome back to our EMACS configuration file.  -*- lexical-binding: t; -*-
-;; Edited by Matthew Morton, last edited November 2026
+;; Edited by Matthew Morton, last edited November 23 2026
 
-;;; File configuration
 (setq custom-file "~/.emacs.d/emacs-custom.el")
-(load custom-file)
+(load "~/.emacs.d/emacs-keybinds.el")
 
-;;; Appearance
-;; startup message, menu bar/tool bar
+;;; Appearence
 
+;; set up buff tabs, turn off GUI elements
 (tool-bar-mode 0)
 (menu-bar-mode 0)
-(scroll-bar-mode 0)
+(scroll-bar-mode 1)
+
+;; columns and line numbers
 (column-number-mode 1)
-(show-paren-mode 1 )
+(show-paren-mode 1)
+(tab-bar-mode 1)
+(global-tab-line-mode 1)
+(global-display-line-numbers-mode t)
 
 (setq inhibit-startup-screen t)
 
 ;; set up line numbers
-(global-display-line-numbers-mode t)
 
-;; set custome font and font-size
+
+;; set custom font and font-size
 (set-face-attribute 'default nil :font "Iosevka Nerd Font Mono" :height 200)
 
-;; colorscheme
-(setq customize-theme "tsdh-light")
-
 ;; turn off that damn bell
-(setq ring-bell-function 'ignore)
+(setq ring-bell-function 'ignore
+      visible-bell t)
 
 ;;; Keybinds
 
@@ -48,6 +50,5 @@
 			(awk-mode . "awk")
 			(other . "bsd")))
 
-(tab-bar-mode)
-(tab-line-mode)
+
 
